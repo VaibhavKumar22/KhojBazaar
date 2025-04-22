@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Local Buisness Portal</title>
+    <link href="./output.css" rel="stylesheet">
+
+    <style>
+        @keyframes bodyFadeIn {
+            from { opacity: 0; }
+            to { opacity: 3; }
+        }
+
+        body {
+            opacity: 0;
+            animation: bodyFadeIn 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+       
+        .background-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: -1;
+        }
+        .active-slide {
+            opacity: 1;
+        }
+         /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Offset for fixed header */
+    section {
+        scroll-margin-top: 6rem;
+    }
+        @keyframes infinite-scroll {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+        }
+
+        .animate-infinite-scroll {
+            animation: infinite-scroll 40s linear infinite;
+            display: flex;
+            width: max-content;
+        }
+
+        @media (min-width: 768px) {
+            .animate-infinite-scroll {
+                animation-duration: 50s;
+            }
+        }
+
+    
+    </style>
+</head>
+<body class="bg-blue-300">
+    <div class="relative h-screen">
+        <div class="background-slide active-slide" style="background-image:url('https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?cs=srgb&dl=pexels-thgusstavo-1813272.jpg&fm=jpg')"></div>
+        <div class="background-slide" style="background-image:url('https://icm.aexp-static.com/content/dam/contenthub/us/en/ach-images/2023/08/sourcing-local-header.jpg?imwidth=968')"></div>
+        <div class="background-slide" style="background-image:url('https://navmotorsportsmarketing.com/wp-content/uploads/2021/12/Buying-a-Small-Business-Checklist.jpg')"></div>
+        <div class="background-slide" style="background-image:url('https://images.pexels.com/photos/375889/pexels-photo-375889.jpeg?cs=srgb&dl=pexels-conojeghuo-375889.jpg&fm=jpg')"></div>
+
+        <header class="flex justify-between items-center px-4 py-2 sm:p-3 bg-white/20 backdrop-blur-sm supports-[backdrop-filter]:bg-black/20 fixed w-full top-0 z-50">
+        
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <h1 class="text-xl md:text-2xl font-bold text-blue-300 truncate">
+                        Fair Local Business Portal
+                    </h1>                    
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden lg:flex space-x-6">
+                        <a href="#about" class="text-gray-400 hover:text-blue-600">About</a>
+                        <a href="#market" class="text-gray-400 hover:text-blue-600">Marketplace</a>
+                        <a href="#blog" class="text-gray-400 hover:text-blue-600">Blog</a>
+                        <a href="#testimonials" class="text-gray-400 hover:text-blue-600">Testimonials</a>
+                        <a href="#contact" class="text-gray-400 hover:text-blue-600">Contact</a>
+                        <a href="./login.html" class="bg-yellow-500 text-white px-4  py-2 -my-2 rounded hover:bg-yellow-600">Login</a>
+
+                    </nav>
+    
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden text-gray-600" id="menuButton">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+    
+                <!-- Mobile Menu -->
+                <div class="mobile-menu lg:hidden bg-white">
+                    <div class="flex flex-col space-y-4 py-4">
+                        <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
+                        <a href="#market" class="text-gray-700 hover:text-blue-600">Marketplace</a>
+                        <a href="#blog" class="text-gray-700 hover:text-blue-600">Blog</a>
+                        <a href="#testimonials" class="text-gray-700 hover:text-blue-600">Testimonials</a>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+                        <a href="./login.html" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600  text-center">Log in</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+      
+        <main class="flex flex-col items-center justify-center h-full text-center">
+            <div class="max-w-3xl ">
+                <h2 class="text-4xl font-extrabold text-blue-300 mb-2">Empowering Local Buisness With <br><span class="text-blue-600">Better Platform</span></h2>
+                <p class="mb-4 text-lg text-white">Connecting Customers and Enterpreneurs For Empowering Buisness 🌍✨</p>
+                <a  class="bg-blue-600 text-white my-7 px-4 py-2 rounded-lg 
+           transition-all duration-500 ease-in-out 
+           hover:bg-blue-400 hover:py-4 hover:px-8 hover:text-xl
+           transform origin-left
+           animate-line-expand">
+    Get Started Now! </a>
+            </div>
+        </main>
+    </div>
+    
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-12 text-blue-600">About Us</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4 text-blue-500">🌱</div>
+                    <h4 class="font-bold mb-2">Our Mission</h4>
+                    <p class="text-gray-600">Empowering local businesses through community support</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4 text-blue-500">🤝</div>
+                    <h4 class="font-bold mb-2">Partnerships</h4>
+                    <p class="text-gray-600">200+ local business collaborations</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4 text-blue-500">🏆</div>
+                    <h4 class="font-bold mb-2">Achievements</h4>
+                    <p class="text-gray-600">5-star rated platform since 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="market" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-12 text-blue-600">Marketplace</h3>
+            <div class="flex overflow-x-auto pb-6 gap-6 scrollbar-hide">
+                <div class="min-w-[300px] bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h4 class="font-bold mb-2">Local Produce</h4>
+                    <p class="text-gray-600 mb-4">Fresh from nearby farms</p>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Explore</button>
+                </div>
+                <!-- Add more marketplace cards -->
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="py-16 bg-gray-100 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-12 text-blue-600">What People Say</h3>
+            
+            <!-- Testimonials Container -->
+            <div class="relative overflow-hidden">
+                <!-- Scroll Container -->
+                <div class="flex animate-infinite-scroll space-x-8 w-max">
+                    <!-- Testimonial Items (6 unique + 6 duplicates) -->
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"This platform transformed our local business!"</p>
+                        <p class="font-bold text-blue-600">- Sarah, Shop Owner</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Best decision for community connections."</p>
+                        <p class="font-bold text-blue-600">- Mike, Farmer</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Increased sales by 150% in 6 months!"</p>
+                        <p class="font-bold text-blue-600">- Emily, Baker</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Essential tool for local entrepreneurs."</p>
+                        <p class="font-bold text-blue-600">- David, Café Owner</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Revolutionized customer connections."</p>
+                        <p class="font-bold text-blue-600">- Lisa, Florist</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"User-friendly with amazing support."</p>
+                        <p class="font-bold text-blue-600">- John, Craftsman</p>
+                    </div>
+                    
+                    <!-- Duplicates -->
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"This platform transformed our local business!"</p>
+                        <p class="font-bold text-blue-600">- Sarah, Shop Owner</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Best decision for community connections."</p>
+                        <p class="font-bold text-blue-600">- Mike, Farmer</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Increased sales by 150% in 6 months!"</p>
+                        <p class="font-bold text-blue-600">- Emily, Baker</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Essential tool for local entrepreneurs."</p>
+                        <p class="font-bold text-blue-600">- David, Café Owner</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Revolutionized customer connections."</p>
+                        <p class="font-bold text-blue-600">- Lisa, Florist</p>
+                    </div>
+                    <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"User-friendly with amazing support."</p>
+                        <p class="font-bold text-blue-600">- John, Craftsman</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-12 bg-white border-t border-gray-200" id="contact">
+
+        <div class="max-w-7xl mx-auto px-4">
+
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-5">
+                <h2 class="font-bold text-2xl items-center justify-center">Contact us:</h2>
+
+                <!-- Social Media Links -->
+                <div class="flex space-x-6">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIou9WTweBF8jIBPf8Mjyxzud5PEiEQpRp2w&s" alt="Facebook" class="w-6 h-6" width="24" height="24" loading="lazy">
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                        <img src="https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg" alt="Twitter" class="w-6 h-6" width="24" height="24" loading="lazy">
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRokEYt0yyh6uNDKL8uksVLlhZ35laKNQgZ9g&s" alt="LinkedIn" class="w-6 h-6" width="24" height="24" loading="lazy">
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" class="w-6 h-6" width="24" height="24" loading="lazy">
+                    </a>
+                </div>
+    
+                <!-- Contact Information -->
+                <div class="flex flex-col items-center md:flex-row gap-6 text-gray-600">
+                    <a href="mailto:support@fairlocalbusiness.com" class="hover:text-blue-600 transition-colors">
+                        📧 support@fairlocalbusiness.com
+                    </a>
+                    <a href="tel:+11234567890" class="hover:text-blue-600 transition-colors">
+                        📞 +91 (123) 456-7890
+                    </a>
+                    <a href="tel:+11234567890" class="hover:text-blue-600 transition-colors">
+                        📞 +91 (123) 456-7890
+                    </a>
+                </div>
+    
+                <!-- Copyright -->
+                <p class="text-gray-600 text-sm">
+                    &copy; <span id="currentYear"></span> Fair Local Business Portal
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.background-slide');
+        let current = 0;
+        setInterval(() => {
+            slides[current].classList.remove('active-slide');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active-slide');
+        }, 3000);
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const mainButton = document.querySelector('button.md\\:hidden');
+        const navMenu = document.querySelector('nav');
+        mainButton.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+    </script>
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#menuButton') && !e.target.closest('.mobile-menu')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+    <script>
+        // Pause animation on hover
+        const scrollContainer = document.querySelector('.animate-infinite-scroll');
+        scrollContainer.addEventListener('mouseenter', () => {
+            scrollContainer.style.animationPlayState = 'paused';
+        });
+        scrollContainer.addEventListener('mouseleave', () => {
+            scrollContainer.style.animationPlayState = 'running';
+        });
+    </script>
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
